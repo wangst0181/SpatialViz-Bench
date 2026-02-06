@@ -10,6 +10,13 @@
 
 This project is designed to evaluate the performance of multimodal large language models on the SpatialViz-Bench benchmark.
 
+## News
+
+* **2025.5.28** Released SpatialViz-Bench, the first benchmark to evaluate spatial visualization for MLLMs.
+* **2026.1.5** EASI (Holistic Evaluation of Multimodal LLMs on Spatial Intelligence) integrated SpatialViz-Bench into their open-source evaluation platform. [EASI on GitHub](https://github.com/EvolvingLMMs-Lab/EASI)
+* **2026.1.26** 🎉 Accepted as a poster at ICLR 2026.
+* **2026.2.2** Released the code for generating data.
+
 ## Table of Contents
 
 * [Installation](#installation)
@@ -44,32 +51,50 @@ Before running the script, you may need to configure API keys. The script accept
 
 Please ensure you have valid API keys for the models you intend to use.
 
-### Running Evaluations
+### Running Evaluations (Closed-source / API Models)
 
-You can use the `evaluate.py` script to run evaluations for closed-source models.
+You can use `evaluation/evaluate.py` to run evaluations for closed-source or API-served models. This script supports two modes:
+* `modify` (default): re-evaluate missing/failed entries in existing results.
+* `evaluate`: run a fresh evaluation.
 
 The basic command structure is as follows:
 
 ```bash
-python evaluate.py \
+python evaluation/evaluate.py \
     --model_list "qwen2.5-vl-3b-instruct" "gpt-4o" \
     --benchmark_test_path "path/to/your/SpatialVizBench/SpatialViz_Bench_images" \
-    --results_dir "path/to/your/results_directory" \
-    --qwen_key "YOUR_QWEN_API_KEY" \
-    --openai_key "YOUR_OPENAI_API_KEY" \
-    # ... other API keys and arguments
+    --save_dir "path/to/your/results_directory" \
+    --data_file "SpatialViz_Bench_test.json" \
+    --run_mode "evaluate"
 ```
 
-You can use the `evaluate_xxx.py` script to run evaluations for specific open-source models.
+Common optional flags:
+* `--text_only`: skip images and run text-only prompts
+* `--use_direct_answer`: use direct-answer prompts when available
+* `--choice_prompt` / `--direct_prompt`: select prompt keys or pass raw prompt text
+* `--enable_sampling --sample_per_level N --sample_seed S`: subsample per (Category, Task, Level)
+* `--logprobs --top_logprobs K`: request log probabilities (if the API supports it)
+
+### Running Evaluations (Open-source / Local Models)
+
+You can use the `evaluation/evaluate_xxx.py` scripts to run evaluations for specific open-source models. Available scripts:
+* `evaluation/evaluate_deepseekvl.py`
+* `evaluation/evaluate_internvl.py`
+* `evaluation/evaluate_kimivl.py`
+* `evaluation/evaluate_llava_ov.py`
+* `evaluation/evaluate_sail.py`
 
 The basic command structure is as follows:
 
 ```bash
-python evaluate_xxxvl.py \
+python evaluation/evaluate_xxxvl.py \
     --model_paths "path/to/download/xxx/models" \
     --benchmark_test_path "path/to/your/SpatialVizBench/SpatialViz_Bench_images" \
-    --results_dir "path/to/your/results_directory" 
+    --results_dir "path/to/your/results_directory" \
+    --data_file "SpatialViz_Bench_test.json"
 ```
+
+These scripts share common flags such as `--run_mode`, `--text_only`, `--enable_sampling`, and `--enable_tail_fallback`.
 
 ### Extract Answer from Results
 
@@ -94,10 +119,10 @@ The `get_answer` function in `evaluate.py` processes a results file (in JSONL fo
 If you use SpatialViz-Bench in your research, please cite our [paper](https://github.com/wangst0181/Spatial-Visualization-Benchmark/blob/main/SpatialViz-Bench_Automatically_Generated_Spatial_Visualization_Reasoning_Tasks_for_MLLMs.pdf):
 
 ```bibtex
-@misc{wang2025spatialvizbenchautomaticallygeneratedspatial,
-      title={SpatialViz-Bench: Automatically Generated Spatial Visualization Reasoning Tasks for MLLMs}, 
-      author={Siting Wang and Luoyang Sun and Cheng Deng and Kun Shao and Minnan Pei and Zheng Tian and Haifeng Zhang and Jun Wang},
-      year={2025},
+@misc{wang2026spatialvizbenchcognitivelygroundedbenchmarkdiagnosing,
+      title={SpatialViz-Bench: A Cognitively-Grounded Benchmark for Diagnosing Spatial Visualization in MLLMs}, 
+      author={Siting Wang and Minnan Pei and Luoyang Sun and Cheng Deng and Kun Shao and Zheng Tian and Haifeng Zhang and Jun Wang},
+      year={2026},
       eprint={2507.07610},
       archivePrefix={arXiv},
       primaryClass={cs.CV},
