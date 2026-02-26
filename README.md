@@ -3,6 +3,7 @@
 </div>
 
 <div align="center">
+<a href='https://wangst0181.github.io/SpatialViz-Bench/'><img src='https://img.shields.io/badge/website%20-8A2BE2'></a>
 <a href='https://arxiv.org/abs/2507.07610'><img src='https://img.shields.io/badge/Paper-ArXiv-C71585'></a>
 <a href='https://huggingface.co/datasets/PLM-Team/Spatial-Visualization-Benchmark'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging Face-red'></a>
 <a><img src="https://img.shields.io/github/stars/wangst0181/Spatial-Visualization-Benchmark"></a>
@@ -128,3 +129,4 @@ If you use SpatialViz-Bench in your research, please cite our [paper](https://gi
       primaryClass={cs.CV},
       url={https://arxiv.org/abs/2507.07610}, 
 }
+
