@@ -1,15 +1,19 @@
 <div align="center">
-<h1>SpatialViz-Bench </h1>
+<h1>SpatialViz-Bench: A Cognitively-Grounded Benchmark for Diagnosing Spatial Visualization in MLLMs </h1>
 </div>
 
 <div align="center">
-<a href='https://wangst0181.github.io/SpatialViz-Bench/'><img src='https://img.shields.io/badge/website%20-8A2BE2'></a>
-<a href='https://arxiv.org/abs/2507.07610'><img src='https://img.shields.io/badge/Paper-ArXiv-C71585'></a>
+<a href='https://wangst0181.github.io/SpatialViz-Bench/'><img src='https://img.shields.io/badge/%F0%9F%8C%90%20Homepage-00A3FF'></a>
+<a href='https://arxiv.org/abs/2507.07610'><img src='https://img.shields.io/badge/%F0%9F%93%96%20Paper-ArXiv-C71585'></a>
 <a href='https://huggingface.co/datasets/PLM-Team/Spatial-Visualization-Benchmark'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging Face-red'></a>
-<a><img src="https://img.shields.io/github/stars/wangst0181/Spatial-Visualization-Benchmark"></a>
+<a><img src="https://img.shields.io/github/stars/wangst0181/SpatialViz-Bench"></a>
 </div>
 
 This project is designed to evaluate the performance of multimodal large language models on the SpatialViz-Bench benchmark.
+
+<div align="center">
+<img src="docs/assets/images/logo_placeholder.png" alt="SpatialViz-Bench Logo" width="420">
+</div>
 
 ## News
 
