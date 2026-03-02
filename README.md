@@ -126,7 +126,7 @@ If you use SpatialViz-Bench in your research, please cite our [paper](https://gi
 ```bibtex
 @misc{wang2026spatialvizbenchcognitivelygroundedbenchmarkdiagnosing,
       title={SpatialViz-Bench: A Cognitively-Grounded Benchmark for Diagnosing Spatial Visualization in MLLMs}, 
-      author={Siting Wang and Minnan Pei and Luoyang Sun and Cheng Deng and Kun Shao and Zheng Tian and Haifeng Zhang and Jun Wang},
+      author={Siting Wang and Minnan Pei and Luoyang Sun and Cheng Deng and Yuchen Li and Kun Shao and Zheng Tian and Haifeng Zhang and Jun Wang},
       year={2026},
       eprint={2507.07610},
       archivePrefix={arXiv},
